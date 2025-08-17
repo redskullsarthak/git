@@ -19,6 +19,7 @@ gitDirectory::gitDirectory(string worktree, string path) {
     this->worktree = worktree;
     this->path = path;
     this->netpath = path + '/' + worktree;
+    if(netpath.back()=='.')netpath.pop_back();
    }
    else cout<<"Error : run git init first"<<endl;
 }

@@ -51,36 +51,41 @@ GitIndexEntry::GitIndexEntry(
     : ctime(ctime), mtime(mtime), dev(dev), ino(ino), mode_type(mode_type),
       mode_perms(mode_perms), uid(uid), gid(gid), fsize(fsize), sha(sha),
       flag_assume_valid(flag_assume_valid), flag_stage(flag_stage), name(name)
-{}
+{
+    debug_log("GitIndexEntry", "Constructed for " + name);
+}
 
 // --- GitIndex member functions ---
 void GitIndex::load(gitDirectory *gd) {
+    debug_log("GitIndex::load", "Loading index from " + gd->netpath + "/.mygit/index");
     string index_file = gd->netpath + "/.mygit/index";
-    
     if (!fs::exists(index_file)) {
+        debug_log("GitIndex::load", "Index file not found; initializing empty index (v2)");
         version = 2;
         entries.clear();
         return;
     }
     ifstream f(index_file, ios::binary);
     if (!f) {
-        cout << "Could not open index file: " << index_file << endl;
+        debug_log("GitIndex::load", "Could not open index file: " + index_file);
         version = 2;
         entries.clear();
         return;
     }
     vector<uint8_t> raw((istreambuf_iterator<char>(f)), {});
+    debug_log("GitIndex::load", "Read " + std::to_string(raw.size()) + " bytes from index");
     if (raw.size() < 12) {
-        cout << "Invalid index file (too small)" << endl;
+        debug_log("GitIndex::load", "Invalid index file (too small)");
         return;
     }
     string signature(raw.begin(), raw.begin() + 4);
     if (signature != "DIRC") {
-        cout << "Invalid index signature: " << signature << endl;
+        debug_log("GitIndex::load", "Invalid index signature: " + signature);
         return;
     }
     version = (raw[4] << 24) | (raw[5] << 16) | (raw[6] << 8) | raw[7];
     uint32_t count = (raw[8] << 24) | (raw[9] << 16) | (raw[10] << 8) | raw[11];
+    debug_log("GitIndex::load", "version=" + std::to_string(version) + " entries=" + std::to_string(count));
 
     size_t idx = 12;
     entries.clear();
@@ -123,9 +128,11 @@ void GitIndex::load(gitDirectory *gd) {
         idx = ((idx + 7) / 8) * 8;
         entries.push_back(entry);
     }
+    debug_log("GitIndex::load", "Loaded entries=" + std::to_string(entries.size()));
 }
 
 void GitIndex::print() const {
+    debug_log("GitIndex::print", "Printing index");
     cout << "Index version: " << version << endl;
     cout << "Entries: " << entries.size() << endl;
     for (const auto &e : entries) {
@@ -135,6 +142,7 @@ void GitIndex::print() const {
 
 // Print a single index entry, verbose or not
 void print_index_entry(const GitIndexEntry &e, bool verbose) {
+    debug_log("print_index_entry", "Printing entry " + e.name);
     cout << e.name << endl;
     if (!verbose) return;
 
@@ -164,7 +172,8 @@ void print_index_entry(const GitIndexEntry &e, bool verbose) {
 }
 
 // API function to load and print index entries, verbose or not
-void ls_files(gitDirectory *gd, bool verbose) {  // call this from commands not yet implemented 
+void ls_files(gitDirectory *gd, bool verbose) {
+    debug_log("ls_files", "Listing files, verbose=" + std::string(verbose ? "true" : "false"));
     GitIndex idx;
     idx.load(gd);
     if (verbose) {
@@ -179,6 +188,7 @@ void ls_files(gitDirectory *gd, bool verbose) {  // call this from commands not 
 // status command implementation 
 
 string branch_get_active(gitDirectory *gd) {
+    debug_log("branch_get_active", "Reading HEAD");
     ifstream f(gd->netpath + "/.mygit/HEAD");
     if (!f.is_open()) {
         cerr << "Error: Could not open HEAD file." << endl;
@@ -191,13 +201,16 @@ string branch_get_active(gitDirectory *gd) {
     }
 
     if (content.rfind("ref: refs/heads/") == 0) {
+        debug_log("branch_get_active", "Active branch: " + content.substr(16));
         return content.substr(16);
     } else {
+        debug_log("branch_get_active", "Detached HEAD");
         return "";
     }
 }
 
 void cmd_status_branch(gitDirectory *gd){
+    debug_log("cmd_status_branch", "Checking branch status");
     string branch=branch_get_active(gd);
     if(branch==""){
         // head literal'
@@ -215,6 +228,7 @@ void cmd_status_branch(gitDirectory *gd){
 }
 
 void tree_to_dict(gitDirectory *gd,string &name , string &prefix, unordered_map<string,string> &mp){
+    debug_log("tree_to_dict", "Building tree dict for " + name + " with prefix " + prefix);
     string fmt="tree";
     string sha=fileFunctions::objectFind(gd->netpath,name,fmt,gd);
     string root=gd->netpath;
@@ -233,6 +247,7 @@ void tree_to_dict(gitDirectory *gd,string &name , string &prefix, unordered_map<
 }
 
 void cmd_status_head_index(gitDirectory *gd , GitIndex *gi){
+    debug_log("cmd_status_head_index", "Comparing HEAD and index");
     cout<<"Changes to be Commited"<<endl;
     unordered_map<string ,string> tree;
     string prefix="";
@@ -242,7 +257,6 @@ void cmd_status_head_index(gitDirectory *gd , GitIndex *gi){
        if(tree.find(el.name)!=tree.end())
        {
         if(tree[el.name]!=el.sha){
-            // definetly modified
             cout<<" modified : "<<el.name<<endl;
             tree.erase(el.name);
         }
@@ -251,27 +265,26 @@ void cmd_status_head_index(gitDirectory *gd , GitIndex *gi){
             cout<<" added : "<<el.name<<endl;
        }
     }
-    for(auto el:gi->entries){ // indexes not even processed 
+    for(auto el:gi->entries){
         cout<<" deleted : "<<el.name<<endl;
     }
 }
 
-
-
-
 void status_cmd(gitDirectory *gd){
+    debug_log("status_cmd", "Running status command");
     string root=gd->netpath;
     GitIndex* index=new GitIndex();
     index->load(gd);
     cmd_status_branch(gd);
     cmd_status_head_index(gd,index);
     cout<<endl;
-
 }
 
 // Write index to .mygit/index (Big Endian), mirroring wyag's index_write
-void write_index(gitDirectory *gd, const GitIndex &index) {// read index=load function in git index class
+void write_index(gitDirectory *gd, const GitIndex &index) {
+    debug_log("write_index", "Writing index with " + std::to_string(index.entries.size()) + " entries");
     const std::string index_file = gd->netpath + "/.mygit/index";
+    debug_log("write_index","name of index "+index_file);
     std::filesystem::create_directories(std::filesystem::path(index_file).parent_path());
     std::ofstream f(index_file, std::ios::binary);
     if (!f.is_open()) {
@@ -362,6 +375,7 @@ void write_index(gitDirectory *gd, const GitIndex &index) {// read index=load fu
 
     // Note: We intentionally do not write the trailing file checksum (like wyag).
     f.flush();
+    debug_log("write_index", "Index write complete");
 }
 
 
@@ -369,10 +383,7 @@ void write_index(gitDirectory *gd, const GitIndex &index) {// read index=load fu
 
 
 void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip_missing) {
-    // 1) Load index
-    
-    cerr<< " reached rm command executing rm "<<endl;
-
+    debug_log("rm", "Removing paths: " + std::to_string(paths.size()) + ", delete_files=" + std::string(delete_files ? "true" : "false"));
     GitIndex idx;
     idx.load(gd);
 
@@ -389,12 +400,11 @@ void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip
     for (const auto &p : paths) {
         fs::path ap = fs::absolute(p).lexically_normal();
         string aps = ap.string();
-        cerr<<p<<". "<<ap<<" "<<endl;
+        debug_log("rm", "Checking path: " + p + " abs=" + aps);
         if (aps.rfind(worktree_prefix, 0) == 0) {
             abspaths.push_back(aps);
         } else {
-            cerr<<ap<<" "<<endl;
-            cerr << "Cannot remove paths outside of worktree: " << p << endl;
+            debug_log("rm", "Cannot remove paths outside of worktree: " + p);
             return;
         }
     }
@@ -415,6 +425,7 @@ void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip
     for (const auto &e : idx.entries) {
         string full_path = (worktree / e.name).lexically_normal().string();
         if (contains(full_path)) {
+            debug_log("rm", "Removing from index: " + e.name + " (" + full_path + ")");
             remove_paths.push_back(full_path);
             erase_one(full_path);
         } else {
@@ -424,8 +435,7 @@ void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip
 
     // 5) Check missing paths
     if (!abspaths.empty() && !skip_missing) {
-        cerr << "Cannot remove paths not in the index:\n";
-        for (const auto &m : abspaths) cerr << "  " << m << '\n';
+        debug_log("rm", "Cannot remove paths not in the index: " + std::to_string(abspaths.size()));
         return;
     }
 
@@ -435,7 +445,7 @@ void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip
             std::error_code ec;
             fs::remove(p, ec);
             if (ec) {
-                cerr << "Failed to remove: " << p << " (" << ec.message() << ")\n";
+                debug_log("rm", "Failed to remove: " + p + " (" + ec.message() + ")");
             }
         }
     }
@@ -443,87 +453,89 @@ void rm(gitDirectory *gd,const vector<string> &paths,bool delete_files,bool skip
     // 7) Update index and write back
     idx.entries = std::move(kept_entries);
     write_index(gd, idx);
+    debug_log("rm", "rm complete");
+}
 
+void add(gitDirectory *gd,const vector<string> &paths, bool delete_files , bool skip_missing){
+    debug_log("add", "Adding paths: " + std::to_string(paths.size()));
+    rm(gd, paths, /*delete_files=*/false, /*skip_missing=*/true);
+
+    // 2) Build (abspath, relpath) set, validating paths
+    fs::path worktree = fs::path(gd->netpath); // repo root
+    string worktree_prefix = worktree.lexically_normal().string();
+    if (!worktree_prefix.empty() && worktree_prefix.back() != fs::path::preferred_separator)
+        worktree_prefix.push_back(fs::path::preferred_separator);
+
+    set<pair<string,string>> clean_paths; // (abspath, relpath)
+    for (const auto &p : paths) {
+        fs::path ap = fs::absolute(p).lexically_normal();
+        string abspath = ap.string();
+
+        // Must be inside worktree and a regular file
+        if (!(abspath.rfind(worktree_prefix, 0) == 0 && fs::is_regular_file(ap))) {
+            debug_log("add", "Not a file, or outside the worktree: " + p);
+            return;
+        }
+
+        fs::path rel = fs::relative(ap, worktree).lexically_normal();
+        string relpath = rel.string();
+
+        clean_paths.insert({abspath, relpath});
     }
 
-  void add(gitDirectory *gd,const vector<string> &paths, bool delete_files , bool skip_missing){
-     // 1) Remove paths from index only (no file deletion)
-     rm(gd, paths, /*delete_files=*/false, /*skip_missing=*/true);
+    // 3) Reload index (modified by rm)
+    GitIndex ind;
+    ind.load(gd);
 
-     // 2) Build (abspath, relpath) set, validating paths
-     fs::path worktree = fs::path(gd->netpath); // repo root
-     string worktree_prefix = worktree.lexically_normal().string();
-     if (!worktree_prefix.empty() && worktree_prefix.back() != fs::path::preferred_separator)
-         worktree_prefix.push_back(fs::path::preferred_separator);
+    // 4) For each path: hash blob, stat, append entry
+    for (const auto &pr : clean_paths) {
+        const string &abspath = pr.first;
+        const string &relpath = pr.second;
+        debug_log("add", "Hashing " + abspath +" "+relpath + " as blob");
+        vector<string> args = {"skirk","2","-w","-t","blob",relpath};
+        debug_log("add","gd net path value "+ gd->netpath+" end");
 
-     set<pair<string,string>> clean_paths; // (abspath, relpath)
-     for (const auto &p : paths) {
-         fs::path ap = fs::absolute(p).lexically_normal();
-         string abspath = ap.string();
+        string sha = hashfile(args, gd->netpath);
 
-         // Must be inside worktree and a regular file
-         if (!(abspath.rfind(worktree_prefix, 0) == 0 && fs::is_regular_file(ap))) {
-             cerr << "Not a file, or outside the worktree: " << p << endl;
-             return;
-         }
+        struct stat st{};
+        if (stat(abspath.c_str(), &st) != 0) {
+            debug_log("add", "stat failed: " + abspath);
+            continue;
+        }
 
-         fs::path rel = fs::relative(ap, worktree).lexically_normal();
-         string relpath = rel.string();
+        int64_t ctime_s = static_cast<int64_t>(st.st_ctime);
+        int64_t mtime_s = static_cast<int64_t>(st.st_mtime);
+        int64_t ctime_ns = 0, mtime_ns = 0;
+        #if defined(__APPLE__)
+            ctime_ns = st.st_ctimespec.tv_nsec;
+            mtime_ns = st.st_mtimespec.tv_nsec;
+        #elif defined(__linux__)
+            ctime_ns = st.st_ctim.tv_nsec;
+            mtime_ns = st.st_mtim.tv_nsec;
+        #endif
 
-         clean_paths.insert({abspath, relpath});
-     }
+        GitIndexEntry entry(
+            {ctime_s, ctime_ns},
+            {mtime_s, mtime_ns},
+            static_cast<uint32_t>(st.st_dev),
+            static_cast<uint32_t>(st.st_ino),
+            0b1000,
+            0644,
+            static_cast<uint32_t>(st.st_uid),
+            static_cast<uint32_t>(st.st_gid),
+            static_cast<uint32_t>(st.st_size),
+            sha,
+            false,
+            0,
+            relpath
+        );
+        debug_log("add", "Appending entry: " + entry.name + " sha=" + entry.sha.substr(0,7));
+        ind.entries.push_back(entry);
+    }
 
-     // 3) Reload index (modified by rm)
-     GitIndex ind;
-     ind.load(gd);
-
-     // 4) For each path: hash blob, stat, append entry
-     for (const auto &pr : clean_paths) {
-         const string &abspath = pr.first;
-         const string &relpath = pr.second;
-
-         // skirk hash-file: ["skirk","2","-w","-t","blob", abspath]
-         vector<string> args = {"skirk","2","-w","-t","blob", abspath};
-         string sha = hashfile(args, gd->netpath);
-
-         struct stat st{};
-         if (stat(abspath.c_str(), &st) != 0) {
-             perror(("stat failed: " + abspath).c_str());
-             continue;
-         }
-
-         int64_t ctime_s = static_cast<int64_t>(st.st_ctime);
-         int64_t mtime_s = static_cast<int64_t>(st.st_mtime);
-         int64_t ctime_ns = 0, mtime_ns = 0;
-         #if defined(__APPLE__)
-             ctime_ns = st.st_ctimespec.tv_nsec;
-             mtime_ns = st.st_mtimespec.tv_nsec;
-         #elif defined(__linux__)
-             ctime_ns = st.st_ctim.tv_nsec;
-             mtime_ns = st.st_mtim.tv_nsec;
-         #endif
-
-         GitIndexEntry entry(
-             /*ctime*/ {ctime_s, ctime_ns},
-             /*mtime*/ {mtime_s, mtime_ns},
-             /*dev*/   static_cast<uint32_t>(st.st_dev),
-             /*ino*/   static_cast<uint32_t>(st.st_ino),
-             /*mode_type*/ 0b1000,
-             /*mode_perms*/ 0644,
-             /*uid*/   static_cast<uint32_t>(st.st_uid),
-             /*gid*/   static_cast<uint32_t>(st.st_gid),
-             /*fsize*/ static_cast<uint32_t>(st.st_size),
-             /*sha*/   sha,
-             /*assume*/ false,
-             /*stage*/  0,
-             /*name*/   relpath
-         );
-
-         ind.entries.push_back(entry);
-     }
-
-     // 5) Write index back
-     write_index(gd, ind);
+    // 5) Write index back
+    write_index(gd, ind);
+    debug_log("add", "add complete");
   }
 
   // Helper to format mode string like Python: f"{type:02o}{perms:04o}"
