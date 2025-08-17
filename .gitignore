@@ -1,4 +1,5 @@
-cache/
+.cache/
+.vscode/
 build/
 tests/
 *.txt
