@@ -76,99 +76,183 @@ CMakeFiles/skirk.dir/src/main.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/main.cpp.o: /Users/sarthaksingh/skirk/src/main.cpp
 CMakeFiles/skirk.dir/src/main.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/skirk.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/main.cpp.o -MF CMakeFiles/skirk.dir/src/main.cpp.o.d -o CMakeFiles/skirk.dir/src/main.cpp.o -c /Users/sarthaksingh/skirk/src/main.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/main.cpp.o -MF CMakeFiles/skirk.dir/src/main.cpp.o.d -o CMakeFiles/skirk.dir/src/main.cpp.o -c /Users/sarthaksingh/skirk/src/main.cpp
 
 CMakeFiles/skirk.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/main.cpp > CMakeFiles/skirk.dir/src/main.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/main.cpp > CMakeFiles/skirk.dir/src/main.cpp.i
 
 CMakeFiles/skirk.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/main.cpp -o CMakeFiles/skirk.dir/src/main.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/main.cpp -o CMakeFiles/skirk.dir/src/main.cpp.s
 
 CMakeFiles/skirk.dir/src/cli/bridge.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/cli/bridge.cpp.o: /Users/sarthaksingh/skirk/src/cli/bridge.cpp
 CMakeFiles/skirk.dir/src/cli/bridge.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/skirk.dir/src/cli/bridge.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/cli/bridge.cpp.o -MF CMakeFiles/skirk.dir/src/cli/bridge.cpp.o.d -o CMakeFiles/skirk.dir/src/cli/bridge.cpp.o -c /Users/sarthaksingh/skirk/src/cli/bridge.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/cli/bridge.cpp.o -MF CMakeFiles/skirk.dir/src/cli/bridge.cpp.o.d -o CMakeFiles/skirk.dir/src/cli/bridge.cpp.o -c /Users/sarthaksingh/skirk/src/cli/bridge.cpp
 
 CMakeFiles/skirk.dir/src/cli/bridge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/cli/bridge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/cli/bridge.cpp > CMakeFiles/skirk.dir/src/cli/bridge.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/cli/bridge.cpp > CMakeFiles/skirk.dir/src/cli/bridge.cpp.i
 
 CMakeFiles/skirk.dir/src/cli/bridge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/cli/bridge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/cli/bridge.cpp -o CMakeFiles/skirk.dir/src/cli/bridge.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/cli/bridge.cpp -o CMakeFiles/skirk.dir/src/cli/bridge.cpp.s
 
 CMakeFiles/skirk.dir/src/commands/init.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/commands/init.cpp.o: /Users/sarthaksingh/skirk/src/commands/init.cpp
 CMakeFiles/skirk.dir/src/commands/init.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/skirk.dir/src/commands/init.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/init.cpp.o -MF CMakeFiles/skirk.dir/src/commands/init.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/init.cpp.o -c /Users/sarthaksingh/skirk/src/commands/init.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/init.cpp.o -MF CMakeFiles/skirk.dir/src/commands/init.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/init.cpp.o -c /Users/sarthaksingh/skirk/src/commands/init.cpp
 
 CMakeFiles/skirk.dir/src/commands/init.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/init.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/init.cpp > CMakeFiles/skirk.dir/src/commands/init.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/init.cpp > CMakeFiles/skirk.dir/src/commands/init.cpp.i
 
 CMakeFiles/skirk.dir/src/commands/init.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/init.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/init.cpp -o CMakeFiles/skirk.dir/src/commands/init.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/init.cpp -o CMakeFiles/skirk.dir/src/commands/init.cpp.s
 
 CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o: /Users/sarthaksingh/skirk/src/utils/fileProd.cpp
 CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o -MF CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o -c /Users/sarthaksingh/skirk/src/utils/fileProd.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o -MF CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o -c /Users/sarthaksingh/skirk/src/utils/fileProd.cpp
 
 CMakeFiles/skirk.dir/src/utils/fileProd.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/utils/fileProd.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/fileProd.cpp > CMakeFiles/skirk.dir/src/utils/fileProd.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/fileProd.cpp > CMakeFiles/skirk.dir/src/utils/fileProd.cpp.i
 
 CMakeFiles/skirk.dir/src/utils/fileProd.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/utils/fileProd.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/fileProd.cpp -o CMakeFiles/skirk.dir/src/utils/fileProd.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/fileProd.cpp -o CMakeFiles/skirk.dir/src/utils/fileProd.cpp.s
 
 CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o: /Users/sarthaksingh/skirk/src/commands/hash-file.cpp
 CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o -MF CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o -c /Users/sarthaksingh/skirk/src/commands/hash-file.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o -MF CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o -c /Users/sarthaksingh/skirk/src/commands/hash-file.cpp
 
 CMakeFiles/skirk.dir/src/commands/hash-file.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/hash-file.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/hash-file.cpp > CMakeFiles/skirk.dir/src/commands/hash-file.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/hash-file.cpp > CMakeFiles/skirk.dir/src/commands/hash-file.cpp.i
 
 CMakeFiles/skirk.dir/src/commands/hash-file.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/hash-file.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/hash-file.cpp -o CMakeFiles/skirk.dir/src/commands/hash-file.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/hash-file.cpp -o CMakeFiles/skirk.dir/src/commands/hash-file.cpp.s
 
 CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o: /Users/sarthaksingh/skirk/src/commands/cat-file.cpp
 CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o -MF CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o -c /Users/sarthaksingh/skirk/src/commands/cat-file.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o -MF CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o -c /Users/sarthaksingh/skirk/src/commands/cat-file.cpp
 
 CMakeFiles/skirk.dir/src/commands/cat-file.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/cat-file.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/cat-file.cpp > CMakeFiles/skirk.dir/src/commands/cat-file.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/cat-file.cpp > CMakeFiles/skirk.dir/src/commands/cat-file.cpp.i
 
 CMakeFiles/skirk.dir/src/commands/cat-file.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/cat-file.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/cat-file.cpp -o CMakeFiles/skirk.dir/src/commands/cat-file.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/cat-file.cpp -o CMakeFiles/skirk.dir/src/commands/cat-file.cpp.s
 
 CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o: CMakeFiles/skirk.dir/flags.make
 CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o: /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp
 CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o -MF CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o -c /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o -MF CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o -c /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp
 
 CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp > CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.i
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp > CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.i
 
 CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp -o CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.s
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/objectClasses.cpp -o CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.s
+
+CMakeFiles/skirk.dir/src/commands/checkout.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/commands/checkout.cpp.o: /Users/sarthaksingh/skirk/src/commands/checkout.cpp
+CMakeFiles/skirk.dir/src/commands/checkout.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/skirk.dir/src/commands/checkout.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/checkout.cpp.o -MF CMakeFiles/skirk.dir/src/commands/checkout.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/checkout.cpp.o -c /Users/sarthaksingh/skirk/src/commands/checkout.cpp
+
+CMakeFiles/skirk.dir/src/commands/checkout.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/checkout.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/checkout.cpp > CMakeFiles/skirk.dir/src/commands/checkout.cpp.i
+
+CMakeFiles/skirk.dir/src/commands/checkout.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/checkout.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/checkout.cpp -o CMakeFiles/skirk.dir/src/commands/checkout.cpp.s
+
+CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o: /Users/sarthaksingh/skirk/src/commands/ls-tree.cpp
+CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o -MF CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o -c /Users/sarthaksingh/skirk/src/commands/ls-tree.cpp
+
+CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/ls-tree.cpp > CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.i
+
+CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/ls-tree.cpp -o CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.s
+
+CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o: /Users/sarthaksingh/skirk/src/commands/show-ref.cpp
+CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o -MF CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o -c /Users/sarthaksingh/skirk/src/commands/show-ref.cpp
+
+CMakeFiles/skirk.dir/src/commands/show-ref.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/show-ref.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/show-ref.cpp > CMakeFiles/skirk.dir/src/commands/show-ref.cpp.i
+
+CMakeFiles/skirk.dir/src/commands/show-ref.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/show-ref.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/show-ref.cpp -o CMakeFiles/skirk.dir/src/commands/show-ref.cpp.s
+
+CMakeFiles/skirk.dir/src/commands/tag.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/commands/tag.cpp.o: /Users/sarthaksingh/skirk/src/commands/tag.cpp
+CMakeFiles/skirk.dir/src/commands/tag.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/skirk.dir/src/commands/tag.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/commands/tag.cpp.o -MF CMakeFiles/skirk.dir/src/commands/tag.cpp.o.d -o CMakeFiles/skirk.dir/src/commands/tag.cpp.o -c /Users/sarthaksingh/skirk/src/commands/tag.cpp
+
+CMakeFiles/skirk.dir/src/commands/tag.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/commands/tag.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/commands/tag.cpp > CMakeFiles/skirk.dir/src/commands/tag.cpp.i
+
+CMakeFiles/skirk.dir/src/commands/tag.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/commands/tag.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/commands/tag.cpp -o CMakeFiles/skirk.dir/src/commands/tag.cpp.s
+
+CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o: /Users/sarthaksingh/skirk/src/utils/refWorkers.cpp
+CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o -MF CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o -c /Users/sarthaksingh/skirk/src/utils/refWorkers.cpp
+
+CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/refWorkers.cpp > CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.i
+
+CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/refWorkers.cpp -o CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.s
+
+CMakeFiles/skirk.dir/src/utils/index.cpp.o: CMakeFiles/skirk.dir/flags.make
+CMakeFiles/skirk.dir/src/utils/index.cpp.o: /Users/sarthaksingh/skirk/src/utils/index.cpp
+CMakeFiles/skirk.dir/src/utils/index.cpp.o: CMakeFiles/skirk.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/skirk.dir/src/utils/index.cpp.o"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/skirk.dir/src/utils/index.cpp.o -MF CMakeFiles/skirk.dir/src/utils/index.cpp.o.d -o CMakeFiles/skirk.dir/src/utils/index.cpp.o -c /Users/sarthaksingh/skirk/src/utils/index.cpp
+
+CMakeFiles/skirk.dir/src/utils/index.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/skirk.dir/src/utils/index.cpp.i"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthaksingh/skirk/src/utils/index.cpp > CMakeFiles/skirk.dir/src/utils/index.cpp.i
+
+CMakeFiles/skirk.dir/src/utils/index.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/skirk.dir/src/utils/index.cpp.s"
+	/opt/homebrew/bin/aarch64-apple-darwin24-g++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthaksingh/skirk/src/utils/index.cpp -o CMakeFiles/skirk.dir/src/utils/index.cpp.s
 
 # Object files for target skirk
 skirk_OBJECTS = \
@@ -178,7 +262,13 @@ skirk_OBJECTS = \
 "CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o" \
 "CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o" \
 "CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o" \
-"CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o"
+"CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o" \
+"CMakeFiles/skirk.dir/src/commands/checkout.cpp.o" \
+"CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o" \
+"CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o" \
+"CMakeFiles/skirk.dir/src/commands/tag.cpp.o" \
+"CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o" \
+"CMakeFiles/skirk.dir/src/utils/index.cpp.o"
 
 # External object files for target skirk
 skirk_EXTERNAL_OBJECTS =
@@ -190,10 +280,16 @@ skirk: CMakeFiles/skirk.dir/src/utils/fileProd.cpp.o
 skirk: CMakeFiles/skirk.dir/src/commands/hash-file.cpp.o
 skirk: CMakeFiles/skirk.dir/src/commands/cat-file.cpp.o
 skirk: CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.o
+skirk: CMakeFiles/skirk.dir/src/commands/checkout.cpp.o
+skirk: CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o
+skirk: CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o
+skirk: CMakeFiles/skirk.dir/src/commands/tag.cpp.o
+skirk: CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o
+skirk: CMakeFiles/skirk.dir/src/utils/index.cpp.o
 skirk: CMakeFiles/skirk.dir/build.make
 skirk: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libz.tbd
 skirk: CMakeFiles/skirk.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable skirk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable skirk"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/skirk.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

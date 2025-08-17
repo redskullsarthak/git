@@ -8,10 +8,8 @@ public:
     std::string path;
     std::string netpath;
     bool force = false;
-
     gitDirectory(std::string Worktree, std::string path, bool force);
     gitDirectory(std::string worktree, std::string path);
-
     void CreateGitRepository();
 };
-gitDirectory createInit(int argc, std::vector<std::string>& args, std::string path);
+gitDirectory* createInit(int argc, std::vector<std::string>& args, std::string path);

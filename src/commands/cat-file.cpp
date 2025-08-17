@@ -8,6 +8,7 @@ using namespace std;
 
 // use sha ,and path to read and print object to stdout 
 void catfile(string &path, vector<string> &args){
+    //path-- change to worktree directory(root of project that contains .mygit) , send a gd* 
     string fmt=args[2];
     string sha=args[3];
     unique_ptr<gitObject> ptr = fileFunctions::readObject(sha,path);

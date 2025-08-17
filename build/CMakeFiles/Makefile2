@@ -85,12 +85,12 @@ clean: CMakeFiles/skirk.dir/clean
 CMakeFiles/skirk.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target skirk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target skirk"
 .PHONY : CMakeFiles/skirk.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/skirk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sarthaksingh/skirk/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sarthaksingh/skirk/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/skirk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sarthaksingh/skirk/build/CMakeFiles 0
 .PHONY : CMakeFiles/skirk.dir/rule
@@ -102,7 +102,7 @@ skirk: CMakeFiles/skirk.dir/rule
 # codegen rule for target.
 CMakeFiles/skirk.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target skirk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/sarthaksingh/skirk/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Finished codegen for target skirk"
 .PHONY : CMakeFiles/skirk.dir/codegen
 
 # clean rule for target.

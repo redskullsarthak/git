@@ -1,8 +1,10 @@
-
+#include<memory>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 #include "objectClasses.hpp"
+#include "../commands/init.hpp"
 //path=>path+worktree+.git
 // check if path exists or not ?
 // already a file called worktree
@@ -23,7 +25,10 @@ namespace fileFunctions{
     std::unique_ptr<treeLeaf> parseTreeOne(const std::string &raw, int &pos);
     std::vector<std::unique_ptr<treeLeaf>> treeParse(const std::string &raw);
     std::string treeSerialize(std::vector<std::unique_ptr<treeLeaf>> &obj);
+    std::string objectFind(std::string &netpath,std::string &name, std::string &fmt,bool follow=true,gitDirectory *gd=nullptr);
 }
 // targets --1.ls-tree
 // cv-dpa pointers 
 // dsa 
+
+// destructor for git Object class 

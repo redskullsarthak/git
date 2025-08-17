@@ -93,6 +93,13 @@
         "syncstream": "cpp",
         "typeindex": "cpp",
         "unordered_set": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "generator": "cpp",
+        "ranges": "cpp",
+        "stacktrace": "cpp",
+        "coroutine": "cpp",
+        "expected": "cpp",
+        "numeric": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/opt/homebrew/bin/aarch64-apple-darwin24-g++-14"
 }

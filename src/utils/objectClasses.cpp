@@ -3,31 +3,44 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <memory>
 using namespace std;
 
+// gitObject
+gitObject::~gitObject() = default;
 
-//gitObject is a abstract class , formed using pure virtual functions 
-
-
-// Tree
-Tree::Tree(const vector<unsigned char>& content) {
-    this->fmt = "tree";
+// Commit
+Commit::Commit(const vector<unsigned char>& content) {
+    this->fmt = "commit";
     this->content = content;
+    deserialize(); // parse kvlm now
 }
-vector<unsigned char> Tree::serialize() {
-    cout << "Serializing Tree" << endl;
-    this->raw=fileFunctions::treeSerialize(leafNodes);
-    return {};
-}
-vector<unsigned char> Tree::deserialize() {
-    cout << "Deserializing Tree" << endl;
-    string str(content.begin(),content.end());
-    this->leafNodes=fileFunctions::treeParse(str);
+vector<unsigned char> Commit::serialize() { return {}; }
+vector<unsigned char> Commit::deserialize() {
+    const string cnt(content.begin(), content.end());
+    kvlm = fileFunctions::kvlm_parse(cnt);
     return {};
 }
 
+// Tag
+Tag::Tag(const vector<unsigned char>& content) {
+    this->fmt = "tag";
+    this->content = content;
+    deserialize(); // parse kvlm now
+}
+vector<unsigned char> Tag::serialize() { return {}; }
+vector<unsigned char> Tag::deserialize() {
+    const string cnt(content.begin(), content.end());
+    kvlm = fileFunctions::kvlm_parse(cnt);
+    return {};
+}
 
-
+// treeLeaf function , represents leaves of the tree being parsed 
+treeLeaf::treeLeaf(const string &mode,const string &path,const string &sha){
+    this->mode=mode;
+    this->path=path;
+    this->sha=sha;
+}
 
 
 
@@ -37,46 +50,24 @@ Blob::Blob(const vector<unsigned char>& content) {
     this->content = content;
 }
 vector<unsigned char> Blob::serialize() {
-    cout << "Serializing Blob" << endl;
-    return content;
+    return content; // Blob content is already serialized
 }
 vector<unsigned char> Blob::deserialize() {
-    cout << "Deserializing Blob" << endl;
-    return {};
+    return content; // Blob content doesn't need parsing
 }
 
-// Commit
-Commit::Commit(const vector<unsigned char>& content) {
-    this->fmt = "commit";
+// Tree
+Tree::Tree(const vector<unsigned char>& content) {
+    this->fmt = "tree";
     this->content = content;
+    deserialize(); // Parse tree entries now
 }
-vector<unsigned char> Commit::serialize() {
-    return {};
+vector<unsigned char> Tree::serialize() {
+    const string serialized = fileFunctions::treeSerialize(leafNodes); // Serialize tree entries
+    return vector<unsigned char>(serialized.begin(), serialized.end());
 }
-vector<unsigned char> Commit::deserialize() {
-    
-    const string cnt(content.begin(), content.end());
-    unordered_map kvlm = fileFunctions::kvlm_parse(cnt);
-    return {};
-}
-
-// Tag
-Tag::Tag(const vector<unsigned char>& content) {
-    this->fmt = "tag";
-    this->content = content;
-}
-vector<unsigned char> Tag::serialize() {
-    cout << "Serializing Tag" << endl;
-    return {};
-}
-vector<unsigned char> Tag::deserialize() {
-    cout << "Deserializing Tag" << endl;
-    return {};
-}
- 
-// treeLeaf function , represents leaves of the tree being parsed 
-treeLeaf::treeLeaf(string &mode,string &sha,string &path){
-         this->mode=mode;
-         this->path=path;
-         this->sha=sha;
+vector<unsigned char> Tree::deserialize() {
+    const string raw(content.begin(), content.end());
+    leafNodes = fileFunctions::treeParse(raw); // Parse tree entries
+    return content;
 }

@@ -11,6 +11,12 @@ add_executable(skirk
     src/commands/hash-file.cpp
     src/commands/cat-file.cpp
     src/utils/objectClasses.cpp
+    src/commands/checkout.cpp 
+    src/commands/ls-tree.cpp 
+    src/commands/show-ref.cpp 
+    src/commands/tag.cpp 
+    src/utils/refWorkers.cpp
+     src/utils/index.cpp
     # add other source files as needed
 )
 

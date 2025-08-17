@@ -31,7 +31,7 @@ string hashfile(vector<string> &args,string &path){
         cout<<"error : wrong type in hash-file"<<endl;
         return "";
      }
-
+     //path should be the current working directory carry the gd* with u replace this path with that 
      string sha=fileFunctions::writeObject(move(u), path);
      cout<<"file hashing done here is the sha : " <<sha<<endl;
      return sha;

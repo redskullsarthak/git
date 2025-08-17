@@ -5,9 +5,7 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
-
 
 gitDirectory::gitDirectory(string Worktree, string path, bool force) {
     this->worktree = Worktree;
@@ -17,9 +15,12 @@ gitDirectory::gitDirectory(string Worktree, string path, bool force) {
 }
 
 gitDirectory::gitDirectory(string worktree, string path) {
+    if(std::filesystem::exists(worktree+'/'+".mygit")){
     this->worktree = worktree;
     this->path = path;
     this->netpath = path + '/' + worktree;
+   }
+   else cout<<"Error : run git init first"<<endl;
 }
 
 void gitDirectory::CreateGitRepository() {
@@ -63,7 +64,7 @@ void gitDirectory::CreateGitRepository() {
     cout << "Repository initialized successfully at: " << netpath << endl;
 }
 
-gitDirectory createInit(int argc, vector<string>& args, string path) {
+gitDirectory* createInit(int argc, vector<string>& args, string path) {
     if (argc <= 2) {
         cout << "error : add a directory name" << endl;
         throw std::exception();
@@ -72,7 +73,7 @@ gitDirectory createInit(int argc, vector<string>& args, string path) {
     bool force;
     if (argc == 4 && args[3] == "force") force = true;
     else force = false;
-    gitDirectory gd = gitDirectory(worktree, path, force);
-    gd.CreateGitRepository();
+    gitDirectory* gd = new gitDirectory(worktree, path, force);
+    gd->CreateGitRepository();
     return gd;
 }

@@ -177,6 +177,30 @@ src/commands/cat-file.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/cat-file.cpp.s
 .PHONY : src/commands/cat-file.cpp.s
 
+src/commands/checkout.o: src/commands/checkout.cpp.o
+.PHONY : src/commands/checkout.o
+
+# target to build an object file
+src/commands/checkout.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/checkout.cpp.o
+.PHONY : src/commands/checkout.cpp.o
+
+src/commands/checkout.i: src/commands/checkout.cpp.i
+.PHONY : src/commands/checkout.i
+
+# target to preprocess a source file
+src/commands/checkout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/checkout.cpp.i
+.PHONY : src/commands/checkout.cpp.i
+
+src/commands/checkout.s: src/commands/checkout.cpp.s
+.PHONY : src/commands/checkout.s
+
+# target to generate assembly for a file
+src/commands/checkout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/checkout.cpp.s
+.PHONY : src/commands/checkout.cpp.s
+
 src/commands/hash-file.o: src/commands/hash-file.cpp.o
 .PHONY : src/commands/hash-file.o
 
@@ -224,6 +248,78 @@ src/commands/init.s: src/commands/init.cpp.s
 src/commands/init.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/init.cpp.s
 .PHONY : src/commands/init.cpp.s
+
+src/commands/ls-tree.o: src/commands/ls-tree.cpp.o
+.PHONY : src/commands/ls-tree.o
+
+# target to build an object file
+src/commands/ls-tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.o
+.PHONY : src/commands/ls-tree.cpp.o
+
+src/commands/ls-tree.i: src/commands/ls-tree.cpp.i
+.PHONY : src/commands/ls-tree.i
+
+# target to preprocess a source file
+src/commands/ls-tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.i
+.PHONY : src/commands/ls-tree.cpp.i
+
+src/commands/ls-tree.s: src/commands/ls-tree.cpp.s
+.PHONY : src/commands/ls-tree.s
+
+# target to generate assembly for a file
+src/commands/ls-tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/ls-tree.cpp.s
+.PHONY : src/commands/ls-tree.cpp.s
+
+src/commands/show-ref.o: src/commands/show-ref.cpp.o
+.PHONY : src/commands/show-ref.o
+
+# target to build an object file
+src/commands/show-ref.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/show-ref.cpp.o
+.PHONY : src/commands/show-ref.cpp.o
+
+src/commands/show-ref.i: src/commands/show-ref.cpp.i
+.PHONY : src/commands/show-ref.i
+
+# target to preprocess a source file
+src/commands/show-ref.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/show-ref.cpp.i
+.PHONY : src/commands/show-ref.cpp.i
+
+src/commands/show-ref.s: src/commands/show-ref.cpp.s
+.PHONY : src/commands/show-ref.s
+
+# target to generate assembly for a file
+src/commands/show-ref.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/show-ref.cpp.s
+.PHONY : src/commands/show-ref.cpp.s
+
+src/commands/tag.o: src/commands/tag.cpp.o
+.PHONY : src/commands/tag.o
+
+# target to build an object file
+src/commands/tag.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/tag.cpp.o
+.PHONY : src/commands/tag.cpp.o
+
+src/commands/tag.i: src/commands/tag.cpp.i
+.PHONY : src/commands/tag.i
+
+# target to preprocess a source file
+src/commands/tag.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/tag.cpp.i
+.PHONY : src/commands/tag.cpp.i
+
+src/commands/tag.s: src/commands/tag.cpp.s
+.PHONY : src/commands/tag.s
+
+# target to generate assembly for a file
+src/commands/tag.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/commands/tag.cpp.s
+.PHONY : src/commands/tag.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -273,6 +369,30 @@ src/utils/fileProd.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/fileProd.cpp.s
 .PHONY : src/utils/fileProd.cpp.s
 
+src/utils/index.o: src/utils/index.cpp.o
+.PHONY : src/utils/index.o
+
+# target to build an object file
+src/utils/index.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/index.cpp.o
+.PHONY : src/utils/index.cpp.o
+
+src/utils/index.i: src/utils/index.cpp.i
+.PHONY : src/utils/index.i
+
+# target to preprocess a source file
+src/utils/index.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/index.cpp.i
+.PHONY : src/utils/index.cpp.i
+
+src/utils/index.s: src/utils/index.cpp.s
+.PHONY : src/utils/index.s
+
+# target to generate assembly for a file
+src/utils/index.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/index.cpp.s
+.PHONY : src/utils/index.cpp.s
+
 src/utils/objectClasses.o: src/utils/objectClasses.cpp.o
 .PHONY : src/utils/objectClasses.o
 
@@ -297,6 +417,30 @@ src/utils/objectClasses.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/objectClasses.cpp.s
 .PHONY : src/utils/objectClasses.cpp.s
 
+src/utils/refWorkers.o: src/utils/refWorkers.cpp.o
+.PHONY : src/utils/refWorkers.o
+
+# target to build an object file
+src/utils/refWorkers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.o
+.PHONY : src/utils/refWorkers.cpp.o
+
+src/utils/refWorkers.i: src/utils/refWorkers.cpp.i
+.PHONY : src/utils/refWorkers.i
+
+# target to preprocess a source file
+src/utils/refWorkers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.i
+.PHONY : src/utils/refWorkers.cpp.i
+
+src/utils/refWorkers.s: src/utils/refWorkers.cpp.s
+.PHONY : src/utils/refWorkers.s
+
+# target to generate assembly for a file
+src/utils/refWorkers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/skirk.dir/build.make CMakeFiles/skirk.dir/src/utils/refWorkers.cpp.s
+.PHONY : src/utils/refWorkers.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -312,21 +456,39 @@ help:
 	@echo "... src/commands/cat-file.o"
 	@echo "... src/commands/cat-file.i"
 	@echo "... src/commands/cat-file.s"
+	@echo "... src/commands/checkout.o"
+	@echo "... src/commands/checkout.i"
+	@echo "... src/commands/checkout.s"
 	@echo "... src/commands/hash-file.o"
 	@echo "... src/commands/hash-file.i"
 	@echo "... src/commands/hash-file.s"
 	@echo "... src/commands/init.o"
 	@echo "... src/commands/init.i"
 	@echo "... src/commands/init.s"
+	@echo "... src/commands/ls-tree.o"
+	@echo "... src/commands/ls-tree.i"
+	@echo "... src/commands/ls-tree.s"
+	@echo "... src/commands/show-ref.o"
+	@echo "... src/commands/show-ref.i"
+	@echo "... src/commands/show-ref.s"
+	@echo "... src/commands/tag.o"
+	@echo "... src/commands/tag.i"
+	@echo "... src/commands/tag.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/utils/fileProd.o"
 	@echo "... src/utils/fileProd.i"
 	@echo "... src/utils/fileProd.s"
+	@echo "... src/utils/index.o"
+	@echo "... src/utils/index.i"
+	@echo "... src/utils/index.s"
 	@echo "... src/utils/objectClasses.o"
 	@echo "... src/utils/objectClasses.i"
 	@echo "... src/utils/objectClasses.s"
+	@echo "... src/utils/refWorkers.o"
+	@echo "... src/utils/refWorkers.i"
+	@echo "... src/utils/refWorkers.s"
 .PHONY : help
 
 

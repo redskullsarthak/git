@@ -6,9 +6,12 @@
 #include <zlib.h>
 #include <vector>
 #include <algorithm>
+#include <regex>
 #include"../commands/init.hpp"
 #include"objectClasses.hpp"
 #include "sha1.hpp"
+#include "refWorker.hpp"
+#include <unordered_map>
 using namespace std;
 namespace fs = std::filesystem;
 
@@ -154,12 +157,14 @@ namespace fileFunctions{
        string object_path = object_dir + "/" + filename;
        ofstream out(object_path, ios::binary);
        res=compressZlib(res);// compress
+       object->sha=shaHash;
        if (out.is_open()) {
            out.write(reinterpret_cast<const char*>(res.data()), res.size()); // write to track 
            out.close();
        } else {
            cout << "Failed to write object file: " << object_path << endl;
        }
+       
        return shaHash;
     }
     // parsing commits , parse the unsigned char to string first to reduce complexity here 
@@ -231,6 +236,7 @@ namespace fileFunctions{
         raw += el->mode;
         raw += ' ';
         raw += el->path;
+        
         raw += '\0';
         for (size_t i = 0; i < el->sha.length(); i += 2) {
             string byteStr = el->sha.substr(i, 2);
@@ -240,6 +246,131 @@ namespace fileFunctions{
     }
     return raw;
 }
+// return some nice name   
+// if given a full hash return a full sha 
+// if given a sub hash(a prefix of hash return the hash )
+// if(given the head tag or a particular branch name resolve the final hash and return sha)
+   
+   vector<string> nameResolve(gitDirectory *gd, string &name) {
+    vector<string> candidates;
+    static const regex hashRE("^[0-9A-Fa-f]{4,40}$");
 
+    // Trim whitespace
+    string trimmed = name;
+    trimmed.erase(0, trimmed.find_first_not_of(" \t\n\r"));
+    trimmed.erase(trimmed.find_last_not_of(" \t\n\r") + 1);
 
+    if (trimmed.empty()) return {};
+
+    // HEAD
+    if (trimmed == "HEAD") {
+        string sha = refRelated::refRes("HEAD", gd);
+        if (!sha.empty()) candidates.push_back(sha);
+        return candidates;
+    }
+
+    // SHA or SHA prefix
+    if (regex_match(trimmed, hashRE)) {
+        string lowerName = trimmed;
+        for (auto &c : lowerName) c = tolower(c);
+        string prefix = lowerName.substr(0, 2);
+        string objectsPath = gd->netpath + "/objects/" + prefix;
+        if (fs::exists(objectsPath) && fs::is_directory(objectsPath)) {
+            for (auto &it : fs::directory_iterator(objectsPath)) {
+                string fname = it.path().filename();
+                if (fname.rfind(lowerName.substr(2), 0) == 0) {
+                    candidates.push_back(prefix + fname);
+                }
+            }
+        }
+    }
+
+    // Tag
+    {
+        string tagSha = refRelated::refRes("refs/tags/" + trimmed, gd);
+        if (!tagSha.empty() && find(candidates.begin(), candidates.end(), tagSha) == candidates.end())
+            candidates.push_back(tagSha);
+    }
+
+    // Local branch
+    {
+        string branchSha = refRelated::refRes("refs/heads/" + trimmed, gd);
+        if (!branchSha.empty() && find(candidates.begin(), candidates.end(), branchSha) == candidates.end())
+            candidates.push_back(branchSha);
+    }
+
+    // Remote branch
+    {
+        string remoteSha = refRelated::refRes("refs/remotes/" + trimmed, gd);
+        if (!remoteSha.empty() && find(candidates.begin(), candidates.end(), remoteSha) == candidates.end())
+            candidates.push_back(remoteSha);
+    }
+
+    return candidates;
+}
+   
+   string objectFind( string &netpath, string &name, string &fmt, bool follow, gitDirectory *gd) {
+    // 1. Resolve name to SHA(s)
+    vector<string> shaList = nameResolve(gd, name);
+
+    if (shaList.empty()) {
+        cerr << "No such reference: " << name << endl;
+        return "";
+    }
+    if (shaList.size() > 1) {
+        cerr << "Ambiguous reference " << name << ": Candidates are:\n";
+        for (const auto &s : shaList) {
+            cerr << " - " << s << "\n";
+        }
+        return "";
+    }
+
+    string sha = shaList[0];
+
+    // 2. If no format required, return SHA directly
+    if (fmt=="") {
+        return sha;
+    }
+
+    // 3. Follow objects until format matches or follow == false
+    while (true) {
+        unique_ptr<gitObject> obj = readObject(sha, gd->netpath);
+        if (!obj) {
+            cerr << "Error: Could not read object for SHA: " << sha << endl;
+            return "";
+        }
+
+        if (obj->fmt == fmt) {
+            return sha;
+        }
+        if (!follow) {
+            return "";
+        }
+
+        // Follow tags
+        if (obj->fmt == "tag") {
+            Tag* tagObj = dynamic_cast<Tag*>(obj.get());
+            if (tagObj && tagObj->kvlm.count("object")) {
+                sha = tagObj->kvlm["object"];
+                continue;
+            }
+            return "";
+        }
+        // Follow commit to tree
+        else if (obj->fmt == "commit" && fmt == "tree") {
+            Commit* commitObj = dynamic_cast<Commit*>(obj.get());
+            if (commitObj && commitObj->kvlm.count("tree")) {
+                sha = commitObj->kvlm["tree"];
+                
+                continue;
+            }
+            return "";
+        }
+        else {
+            return "";
+        }
+    }
+}
+   
+   
 }
