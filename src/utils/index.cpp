@@ -57,8 +57,8 @@ GitIndexEntry::GitIndexEntry(
 
 // --- GitIndex member functions ---
 void GitIndex::load(gitDirectory *gd) {
-    debug_log("GitIndex::load", "Loading index from " + gd->netpath + "/.mygit/index");
-    string index_file = gd->netpath + "/.mygit/index";
+    debug_log("GitIndex::load", "Loading index from " + gd->netpath + ".mygit/index");
+    string index_file = gd->netpath + ".mygit/index";
     if (!fs::exists(index_file)) {
         debug_log("GitIndex::load", "Index file not found; initializing empty index (v2)");
         version = 2;
@@ -661,24 +661,29 @@ void add(gitDirectory *gd,const vector<string> &paths, bool delete_files , bool 
                             const std::string &author,
                             std::time_t timestamp,
                             const std::string &message) {
-      // Build raw commit payload (kvlm-style): headers, blank line, message
-      std::string tz = tz_offset_string(timestamp);
-      std::string ts = std::to_string(static_cast<long long>(timestamp));
+    // Build raw commit payload (kvlm-style): headers, blank line, message
+    debug_log("commit_create", "Entry: tree='" + tree + "' parent='" + parent + "'");
+    std::string tz = tz_offset_string(timestamp);
+    std::string ts = std::to_string(static_cast<long long>(timestamp));
+    debug_log("commit_create", "author='" + author + "' ts='" + ts + "' tz='" + tz + "'");
 
-      std::string raw;
-      raw += "tree " + tree + "\n";
-      if (!parent.empty()) raw += "parent " + parent + "\n";
-      raw += "author " + author + " " + ts + " " + tz + "\n";
-      raw += "committer " + author + " " + ts + " " + tz + "\n";
-      raw += "\n";
-      // Trim message and ensure trailing newline
-      std::string msg = message;
-      while (!msg.empty() && (msg.back() == '\n' || msg.back() == '\r')) msg.pop_back();
-      raw += msg + "\n";
+    std::string raw;
+    raw += "tree " + tree + "\n";
+    if (!parent.empty()) raw += "parent " + parent + "\n";
+    raw += "author " + author + " " + ts + " " + tz + "\n";
+    raw += "committer " + author + " " + ts + " " + tz + "\n";
+    raw += "\n";
+    // Trim message and ensure trailing newline
+    std::string msg = message;
+    while (!msg.empty() && (msg.back() == '\n' || msg.back() == '\r')) msg.pop_back();
+    raw += msg + "\n";
 
-      std::vector<unsigned char> content(raw.begin(), raw.end());
-      std::unique_ptr<Commit> c = std::make_unique<Commit>(content);
-      return fileFunctions::writeObject(std::move(c), gd->netpath);
+    std::vector<unsigned char> content(raw.begin(), raw.end());
+    debug_log("commit_create", "raw payload size=" + std::to_string(raw.size()) + " message_len=" + std::to_string(msg.size()));
+    std::unique_ptr<Commit> c = std::make_unique<Commit>(content);
+    std::string sha = fileFunctions::writeObject(std::move(c), gd->netpath);
+    debug_log("commit_create", "Wrote commit object sha='" + sha + "'");
+    return sha;
   }
 
   // Helper: get "Name <email>" from env, otherwise fallback

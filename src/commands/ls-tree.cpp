@@ -7,6 +7,7 @@
 using namespace std;
 
 static void print_tree(Tree* tree, string &prefix, gitDirectory *gd, bool r) {
+    cerr << "[DEBUG][ls-tree] print_tree: prefix='" << prefix << "' entries=" << tree->leafNodes.size() << " recursive=" << r << "\n";
     for (auto &el : tree->leafNodes) {
         string tp = (el->mode.size() >= 2 ? el->mode.substr(0,2) : el->mode);
         string type;
@@ -18,9 +19,11 @@ static void print_tree(Tree* tree, string &prefix, gitDirectory *gd, bool r) {
         string print_path = prefix.empty() ? el->path : prefix + "/" + el->path;
 
         if (r && type == "tree") {
+            cerr << "[DEBUG][ls-tree] print_tree: descending into subtree '" << el->path << "' sha=" << el->sha << "\n";
             unique_ptr<gitObject> child = fileFunctions::readObject(el->sha, gd->netpath);
             Tree* childTree = dynamic_cast<Tree*>(child.get());
             if (!childTree) {
+                cerr << "[DEBUG][ls-tree] Error: subtree object not a tree: " << el->sha << "\n";
                 cout << "Error: subtree object not a tree: " << el->sha << endl;
                 continue;
             }
@@ -28,21 +31,26 @@ static void print_tree(Tree* tree, string &prefix, gitDirectory *gd, bool r) {
             print_tree(childTree, new_prefix, gd, r);
         } else {
             cout << el->mode << " " << type << " " << el->sha << "\t" << print_path << endl;
+            cerr << "[DEBUG][ls-tree] print_tree: listed '" << print_path << "' sha=" << el->sha << " type=" << type << "\n";
         }
     }
 }
 
 void ls_tree(string &name, string &prefix, gitDirectory *gd, bool r) {
+    cerr << "[DEBUG][ls-tree] ls_tree: name='" << name << "' prefix='" << prefix << "' recursive=" << r << "\n";
     string fmt = string("tree");
     string net = gd->netpath;
     string sha = fileFunctions::objectFind(net, name, fmt, true, gd);
+    cerr << "[DEBUG][ls-tree] ls_tree: objectFind returned sha='" << sha << "'\n";
     if (sha.empty()) {
         cout << "Could not resolve treeish: " << name << endl;
         return;
     }
     unique_ptr<gitObject> obj = fileFunctions::readObject(sha, gd->netpath);
+    cerr << "[DEBUG][ls-tree] ls_tree: readObject returned " << (obj?"non-null":"null") << "\n";
     Tree* tree = dynamic_cast<Tree*>(obj.get());
     if (!tree) {
+        cerr << "[DEBUG][ls-tree] Resolved object is not a tree: " << sha << "\n";
         cout << "Resolved object is not a tree: " << sha << endl;
         return;
     }

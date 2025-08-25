@@ -15,11 +15,12 @@ Commit::Commit(const vector<unsigned char>& content) {
     this->content = content;
     deserialize(); // parse kvlm now
 }
-vector<unsigned char> Commit::serialize() { return {}; }
+vector<unsigned char> Commit::serialize() { return content; }
 vector<unsigned char> Commit::deserialize() {
+    std::cout << std::string(content.begin(), content.end()) << endl;
     const string cnt(content.begin(), content.end());
     kvlm = fileFunctions::kvlm_parse(cnt);
-    return {};
+    return content;
 }
 
 // Tag
@@ -28,11 +29,11 @@ Tag::Tag(const vector<unsigned char>& content) {
     this->content = content;
     deserialize(); // parse kvlm now
 }
-vector<unsigned char> Tag::serialize() { return {}; }
+vector<unsigned char> Tag::serialize() { return content; }
 vector<unsigned char> Tag::deserialize() {
     const string cnt(content.begin(), content.end());
     kvlm = fileFunctions::kvlm_parse(cnt);
-    return {};
+    return content;
 }
 
 // treeLeaf function , represents leaves of the tree being parsed 
